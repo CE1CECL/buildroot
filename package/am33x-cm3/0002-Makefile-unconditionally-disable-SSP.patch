@@ -22,7 +22,7 @@ index c3ec071..5226006 100644
 +++ b/Makefile
 @@ -16,7 +16,8 @@ INCLUDES = $(SRCDIR)/include
  CFLAGS =-march=armv7-m -mcpu=cortex-m3 -mthumb -nostdlib -Wall -Wundef \
- 	-Werror-implicit-function-declaration -Wstrict-prototypes \
+ 	-Wno-implicit-function-declaration -Wstrict-prototypes \
  	-Wdeclaration-after-statement -fno-delete-null-pointer-checks \
 -	-Wempty-body -fno-strict-overflow  -g -I$(INCLUDES) -O2
 +	-Wempty-body -fno-strict-overflow -fno-stack-protector \

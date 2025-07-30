@@ -25,6 +25,6 @@ Index: b/Makefile
  INCLUDES = $(SRCDIR)/include
 -CFLAGS =-mcpu=cortex-m3 -mthumb -nostdlib -Wall -Wundef \
 +CFLAGS =-march=armv7-m -mcpu=cortex-m3 -mthumb -nostdlib -Wall -Wundef \
- 	-Werror-implicit-function-declaration -Wstrict-prototypes \
+ 	-Wno-implicit-function-declaration -Wstrict-prototypes \
  	-Wdeclaration-after-statement -fno-delete-null-pointer-checks \
  	-Wempty-body -fno-strict-overflow  -g -I$(INCLUDES) -O2

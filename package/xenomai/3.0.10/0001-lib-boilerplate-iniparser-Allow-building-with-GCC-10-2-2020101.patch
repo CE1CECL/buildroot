@@ -16,7 +16,7 @@ was already addressed upstream:
 
 iniparser/iniparser.c: In function ‘iniparser_load’:
 iniparser/iniparser.c:616:13: error: ‘sprintf’ arguments 3, 4 may
-overlap destination object ‘buf’ [-Werror=restrict]
+overlap destination object ‘buf’ [-Wno-restrict]
    616 |             sprintf(tmp, "%s:%s", section, key);
        |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

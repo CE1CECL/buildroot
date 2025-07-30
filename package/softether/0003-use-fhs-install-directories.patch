@@ -290,8 +290,8 @@ Index: b/src/bin/hamcore/Makefile.am
  
  include $(top_srcdir)/autotools/softether.am
  
--# This is required to use a custom build rule with -Wall and -Werror enabled.
-+# An empty EXEEXT required for overrides with -Wall and -Werror enabled.
+-# This is required to use a custom build rule with -Wall and  enabled.
++# An empty EXEEXT required for overrides with -Wall and  enabled.
  AUTOMAKE_OPTIONS = -Wno-override
  EXEEXT =
 +

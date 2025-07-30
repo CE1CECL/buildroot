@@ -4,7 +4,7 @@ Date: Mon, 21 Dec 2020 12:05:19 +0000
 Subject: [PATCH] Fix configure failures with Xcode12
 
 Changes are needed becuase Xcode12 includes a default of
--Werror,-Wimplicit-function-declaration which means that
+,-Wimplicit-function-declaration which means that
 even something like calling "exit(0);" is a compile failure
 if you haven't done a "#include <stdlib.h>" first (as C99
 requires, but most other compilers will just warn about)

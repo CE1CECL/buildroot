@@ -1,6 +1,6 @@
-Do not add -Werror when --enable-debug is used
+Do not add  when --enable-debug is used
 
-Using -Werror causes some problems due to warnings in the SDL_sound
+Using  causes some problems due to warnings in the SDL_sound
 code, so let's disable it.
 
 We patch configure directly, because:
@@ -23,7 +23,7 @@ Index: b/configure
    else
      CFLAGS="-O0"
    fi
--  CFLAGS="$CFLAGS -Werror"
+-  CFLAGS="$CFLAGS "
  
  cat >>confdefs.h <<\_ACEOF
  #define DEBUG 1

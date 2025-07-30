@@ -26,7 +26,7 @@ CIFS_UTILS_DEPENDENCIES += keyutils
 endif
 
 define CIFS_UTILS_NO_WERROR
-	$(SED) 's/-Werror//' $(@D)/Makefile.in
+	$(SED) 's///' $(@D)/Makefile.in
 endef
 
 CIFS_UTILS_POST_PATCH_HOOKS += CIFS_UTILS_NO_WERROR

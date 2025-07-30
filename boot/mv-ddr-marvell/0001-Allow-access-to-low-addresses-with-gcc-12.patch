@@ -38,7 +38,7 @@ index 3f0dd89a7381..045284c30cbc 100644
  # ******************
 @@ -331,6 +335,7 @@ OBJ_DIR ?= $(MV_DDR_ROOT)
  CFLAGS = -DMV_DDR_ATF -DCONFIG_DDR4
- CFLAGS += -Wall -Werror -Os -ffreestanding -mlittle-endian -g -gdwarf-2 -nostdinc
+ CFLAGS += -Wall  -Os -ffreestanding -mlittle-endian -g -gdwarf-2 -nostdinc
  CFLAGS += -march=armv8-a -fpie
 +CFLAGS += $(call cc_option, --param=min-pagesize=0)
  

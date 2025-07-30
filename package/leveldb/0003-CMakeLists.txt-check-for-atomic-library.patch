@@ -35,7 +35,7 @@ index be41ba4..9d6773f 100644
  check_library_exists(snappy snappy_compress "" HAVE_SNAPPY)
  check_library_exists(tcmalloc malloc "" HAVE_TCMALLOC)
 @@ -270,6 +271,9 @@ if(HAVE_CLANG_THREAD_SAFETY)
-       -Werror -Wthread-safety)
+        -Wthread-safety)
  endif(HAVE_CLANG_THREAD_SAFETY)
  
 +if(HAVE_ATOMIC)

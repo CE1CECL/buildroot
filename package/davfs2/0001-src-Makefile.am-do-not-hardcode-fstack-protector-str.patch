@@ -20,9 +20,9 @@ index f083462..ed6b682 100644
          kernel_interface.h mount_davfs.h webdav.h
  umount_davfs_SOURCES = umount_davfs.c defaults.h
  
--AM_CFLAGS = -Wall -Werror=format-security \
+-AM_CFLAGS = -Wall -Wno-format-security \
 -        -fstack-protector-strong --param=ssp-buffer-size=4
-+AM_CFLAGS = -Wall -Werror=format-security
++AM_CFLAGS = -Wall -Wno-format-security
  DEFS = -DPROGRAM_NAME=\"mount.davfs\" \
         -DDAV_SYS_CONF_DIR=\"$(pkgsysconfdir)\" \
         -DDAV_LOCALSTATE_DIR=\"$(dav_localstatedir)\" \
@@ -34,9 +34,9 @@ index 9fee542..e98758d 100644
          kernel_interface.h mount_davfs.h webdav.h
  
  umount_davfs_SOURCES = umount_davfs.c defaults.h
--AM_CFLAGS = -Wall -Werror=format-security \
+-AM_CFLAGS = -Wall -Wno-format-security \
 -        -fstack-protector-strong --param=ssp-buffer-size=4
-+AM_CFLAGS = -Wall -Werror=format-security
++AM_CFLAGS = -Wall -Wno-format-security
  
  all: all-am
  

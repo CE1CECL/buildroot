@@ -9,10 +9,10 @@ Content-Transfer-Encoding: 8bit
 Explicitly set CFLAGS for the pip install command, similar to calling
 setup.py, to ignore known compiler warnings treated as errors, e.g.:
 
-    selinuxswig_python_wrap.c:3593:19: error: 'sidget' is deprecated [-Werror,-Wdeprecated-declarations]
+    selinuxswig_python_wrap.c:3593:19: error: 'sidget' is deprecated [,-Wdeprecated-declarations]
                 result = (int)sidget(arg1);
                               ^
-    selinuxswig_python_wrap.c:15024:1: error: no previous prototype for function 'PyInit__selinux' [-Werror,-Wmissing-prototypes]
+    selinuxswig_python_wrap.c:15024:1: error: no previous prototype for function 'PyInit__selinux' [,-Wmissing-prototypes]
             SWIG_init(void) {
             ^
 

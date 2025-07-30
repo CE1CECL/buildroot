@@ -7,9 +7,9 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 Building crda with GCC 6 fails because of all compiler warnings are treated as
-errors. Disable the compiler option '-Werror':
+errors. Disable the compiler option '':
 
-keys-gcrypt.c:94:32: error: ‘keys’ defined but not used [-Werror=unused-const-variable=]
+keys-gcrypt.c:94:32: error: ‘keys’ defined but not used [-Wno-unused-const-variable=]
  static const struct key_params keys[] = {
                                 ^~~~
 cc1: all warnings being treated as errors
@@ -27,7 +27,7 @@ index 74f1172..e9b417f 100644
  RUNTIME_PUBKEY_DIR?=/etc/wireless-regdb/pubkeys
  
  CFLAGS += -O2 -fpic
--CFLAGS += -std=gnu99 -Wall -Werror -pedantic
+-CFLAGS += -std=gnu99 -Wall  -pedantic
 +CFLAGS += -std=gnu99 -Wall -pedantic
  CFLAGS += -Wall -g
  LDLIBREG += -lreg

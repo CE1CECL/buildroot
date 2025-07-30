@@ -7,7 +7,7 @@ Fix the following build failure raised since version 1.6.11 and
 https://github.com/memcached/memcached/commit/617d7cd64d04698b76fee74882627690017e20ad:
 
 logger.c: In function '_logger_parse_cce':
-logger.c:297:13: error: 'rport' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+logger.c:297:13: error: 'rport' may be used uninitialized in this function [-Wno-maybe-uninitialized]
   297 |     total = snprintf(scratch, LOGGER_PARSE_SCRATCH,
       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   298 |             "ts=%d.%d gid=%llu type=conn_close rip=%s rport=%hu transport=%s reason=%s cfd=%d\n",

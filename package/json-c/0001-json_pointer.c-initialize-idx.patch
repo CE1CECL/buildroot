@@ -6,7 +6,7 @@ Subject: [PATCH] json_pointer.c: initialize idx
 Fix the following build failure with gcc 5:
 
 /home/thomas/autobuild/instance-2/output-1/build/json-c-0.17/json_pointer.c: In function 'json_pointer_result_get_recursive':
-/home/thomas/autobuild/instance-2/output-1/build/json-c-0.17/json_pointer.c:193:25: error: 'idx' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+/home/thomas/autobuild/instance-2/output-1/build/json-c-0.17/json_pointer.c:193:25: error: 'idx' may be used uninitialized in this function [-Wno-maybe-uninitialized]
     res->index_in_parent = idx;
                          ^
 

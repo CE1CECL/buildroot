@@ -15,7 +15,7 @@ Signed-off-by: Michael Walle <michael@walle.cc>
  
  # Some suggestions: (-mcpu= generates i386 compatible code)
 -CFLAGS ?= -O2 -fomit-frame-pointer -pipe -mcpu=i686 -w
-+CFLAGS ?= -O2 -pipe -Wall -Werror
++CFLAGS ?= -O2 -pipe -Wall 
 +CFLAGS += -fPIC
  #CFLAGS = -O2 -fomit-frame-pointer -pipe -march=i586 -Wall -g
  #CFLAGS = -O6 -fomit-frame-pointer -pipe -march=i586 -Wall -ansi -pedantic

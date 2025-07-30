@@ -71,7 +71,7 @@ FREESWITCH_CONF_ENV += \
 	apr_cv_process_shared_works=yes \
 	apr_cv_mutex_robust_shared=yes
 
-# build breaks with -Werror enabled
+# build breaks with  enabled
 FREESWITCH_CONF_ENV += \
 	ac_cv_gcc_supports_w_no_unused_result=no
 

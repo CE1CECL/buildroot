@@ -3,7 +3,7 @@ From: Jan Kiszka <jan.kiszka@siemens.com>
 Date: Sat, 16 Oct 2021 19:52:28 +0200
 Subject: [PATCH] testsuite/latency: Use corresponding pclose for popen
 
-Was found by latest gcc-11 and -Werror=mismatched-dealloc.
+Was found by latest gcc-11 and -Wno-mismatched-dealloc.
 
 Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>

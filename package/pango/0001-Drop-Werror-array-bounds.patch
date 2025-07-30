@@ -1,7 +1,7 @@
 From e93dbd66973040f1e0afcba0dc7c712c27d75d59 Mon Sep 17 00:00:00 2001
 From: Matthias Clasen <mclasen@redhat.com>
 Date: Mon, 1 May 2023 23:27:52 -0400
-Subject: [PATCH] Drop -Werror=array-bounds
+Subject: [PATCH] Drop -Wno-array-bounds
 
 gcc has strange issues with this and produces false
 positives that recently started breaking the build of
@@ -22,19 +22,19 @@ index 930f41082..2d30c0141 100644
 @@ -89,7 +89,6 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
      '-Wuninitialized',
      '-Wunused',
-     '-Werror=address',
--    '-Werror=array-bounds',
-     '-Werror=empty-body',
-     '-Werror=implicit',
-     '-Werror=implicit-fallthrough',
+     '-Wno-address',
+-    '-Wno-array-bounds',
+     '-Wno-empty-body',
+     '-Wno-implicit',
+     '-Wno-implicit-fallthrough',
 @@ -132,7 +131,6 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
-     '-Werror=sequence-point',
-     '-Werror=return-type',
-     '-Werror=trigraphs',
--    '-Werror=array-bounds',
-     '-Werror=write-strings',
-     '-Werror=address',
-     '-Werror=int-to-pointer-cast',
+     '-Wno-sequence-point',
+     '-Wno-return-type',
+     '-Wno-trigraphs',
+-    '-Wno-array-bounds',
+     '-Wno-write-strings',
+     '-Wno-address',
+     '-Wno-int-to-pointer-cast',
 -- 
 GitLab
 

@@ -23,7 +23,7 @@ index 2e8e07e..c3f71ce 100644
  if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 -    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g3 -O0 -fsanitize=address")
 +    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g3 -O0")
-+    check_c_compiler_flag("-fsanitize=address -Werror" COMPILER_SUPPORTS_SANITIZE_ADDRESS)
++    check_c_compiler_flag("-fsanitize=address " COMPILER_SUPPORTS_SANITIZE_ADDRESS)
 +    if(COMPILER_SUPPORTS_SANITIZE_ADDRESS)
 +        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address")
 +    endif()

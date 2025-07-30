@@ -20,11 +20,11 @@ and are not enabled by default to the AX_APPEND_COMPILE_FLAGS invocation.
 I have also added the flags that AX_COMPILER_FLAGS did provide, which we
 didn't need to disable.
 
-The --{enable,disable}-Werror flag is added using an explicit
-AC_ARG_ENABLE.  In lttng-tools, it was decided to _not_ have -Werror by
+The --{enable,disable} flag is added using an explicit
+AC_ARG_ENABLE.  In lttng-tools, it was decided to _not_ have  by
 default, so I suggest we do the same in Babeltrace, for consistency
 (although it saddens me very much).  Developers who want to build with
--Werror will need to pass --enable-Werror.
+ will need to pass --enable.
 
 Note that with this patch, we lose the following configure switch, that
 is provided by AX_COMPILER_FLAGS:
@@ -79,7 +79,7 @@ index 055fba101..7ebcf2ad4 100644
 +
 +# Detect warning flags supported by the compiler, append them to WARN_CFLAGS.
 +#
-+# Pass -Werror as an extra flag during the test: this is needed to make the
++# Pass  as an extra flag during the test: this is needed to make the
 +# -Wunknown-warning-option diagnostic fatal with clang.
 +AX_APPEND_COMPILE_FLAGS([ dnl
 +		-Wall dnl
@@ -121,20 +121,20 @@ index 055fba101..7ebcf2ad4 100644
 +		-Wno-missing-field-initializers dnl
 +	],
 +	[WARN_CFLAGS],
-+	[-Werror])
++	[])
 +
-+# When given, add -Werror to WARN_CFLAGS.
++# When given, add  to WARN_CFLAGS.
 +AC_ARG_ENABLE([Werror],
-+	[AS_HELP_STRING([--enable-Werror], [Treat compiler warnings as errors.])]
++	[AS_HELP_STRING([--enable], [Treat compiler warnings as errors.])]
 +)
 +AS_IF([test "x$enable_Werror" = "xyes"],
-+	[WARN_CFLAGS="${WARN_CFLAGS} -Werror"]
++	[WARN_CFLAGS="${WARN_CFLAGS} "]
 +)
  
 -# The test used in AX_COMPILER_FLAGS, generated using AC_LANG_PROGRAM, is
 +# The test used in AX_APPEND_COMPILE_FLAGS, generated using AC_LANG_PROGRAM, is
  # written in such a way that it triggers a -Wold-style-definition warning.  So
--# if the user has -Werror in their CFLAGS, that warning flag will end up
+-# if the user has  in their CFLAGS, that warning flag will end up
 -# disabled, because the test program will not build.
 +# this warning always ends up disabled if we put it there, because the test
 +# program does not build.
@@ -147,7 +147,7 @@ index 055fba101..7ebcf2ad4 100644
 +WARN_CFLAGS="${WARN_CFLAGS} -Wold-style-definition"
  
 -# We want this one to always be an error.
--AM_CFLAGS="${AM_CFLAGS} -Werror=implicit-function-declaration"
+-AM_CFLAGS="${AM_CFLAGS} -Wno-implicit-function-declaration"
 +# CFLAGS from AX_APPEND_COMPILE_FLAGS.
 +AM_CFLAGS="${AM_CFLAGS} ${WARN_CFLAGS}"
  
@@ -180,22 +180,22 @@ index ddb0456c4..000000000
 -#   allows a consistent set of baseline compiler warnings to be used across
 -#   a code base, irrespective of any warnings enabled locally by individual
 -#   developers.  By standardising the warnings used by all developers of a
--#   project, the project can commit to a zero-warnings policy, using -Werror
+-#   project, the project can commit to a zero-warnings policy, using 
 -#   to prevent compilation if new warnings are introduced.  This makes
 -#   catching bugs which are flagged by warnings a lot easier.
 -#
 -#   By providing a consistent --enable-compile-warnings argument across all
 -#   projects using this macro, continuous integration systems can easily be
 -#   configured the same for all projects.  Automated systems or build
--#   systems aimed at beginners may want to pass the --disable-Werror
+-#   systems aimed at beginners may want to pass the --disable
 -#   argument to unconditionally prevent warnings being fatal.
 -#
 -#   --enable-compile-warnings can take the values:
 -#
 -#    * no:      Base compiler warnings only; not even -Wall.
 -#    * yes:     The above, plus a broad range of useful warnings.
--#    * error:   The above, plus -Werror so that all warnings are fatal.
--#               Use --disable-Werror to override this and disable fatal
+-#    * error:   The above, plus  so that all warnings are fatal.
+-#               Use --disable to override this and disable fatal
 -#               warnings.
 -#
 -#   The set of base and enabled flags can be augmented using the
@@ -212,11 +212,11 @@ index ddb0456c4..000000000
 -#
 -#   The EXTRA-* variables should only be used to supply extra warning flags,
 -#   and not general purpose compiler flags, as they are controlled by
--#   configure options such as --disable-Werror.
+-#   configure options such as --disable.
 -#
--#   IS-RELEASE can be used to disable -Werror when making a release, which
+-#   IS-RELEASE can be used to disable  when making a release, which
 -#   is useful for those hairy moments when you just want to get the release
--#   done as quickly as possible.  Set it to "yes" to disable -Werror. By
+-#   done as quickly as possible.  Set it to "yes" to disable . By
 -#   default, it uses the value of $ax_is_release, so if you are using the
 -#   AX_IS_RELEASE macro, there is no need to pass this parameter. For
 -#   example:
@@ -295,7 +295,7 @@ index ddb0456c4..000000000
 -                         [enable_compile_warnings="yes"],
 -                         [enable_compile_warnings="error"])])
 -    AC_ARG_ENABLE([Werror],
--                  AS_HELP_STRING([--disable-Werror],
+-                  AS_HELP_STRING([--disable],
 -                                 [Unconditionally make all compiler warnings non-fatal]),,
 -                  [enable_Werror=maybe])
 -
@@ -372,13 +372,13 @@ index 916f91837..000000000
 -      [ax_compiler_cxx=yes;],
 -      [ax_compiler_cxx=no;])
 -
--    # Always pass -Werror=unknown-warning-option to get Clang to fail on bad
+-    # Always pass -Wno-unknown-warning-option to get Clang to fail on bad
 -    # flags, otherwise they are always appended to the warn_cflags variable, and
 -    # Clang warns on them for every compilation unit.
 -    # If this is passed to GCC, it will explode, so the flag must be enabled
 -    # conditionally.
--    AX_CHECK_COMPILE_FLAG([-Werror=unknown-warning-option],[
--        ax_compiler_flags_test="-Werror=unknown-warning-option"
+-    AX_CHECK_COMPILE_FLAG([-Wno-unknown-warning-option],[
+-        ax_compiler_flags_test="-Wno-unknown-warning-option"
 -    ],[
 -        ax_compiler_flags_test=""
 -    ])
@@ -453,12 +453,12 @@ index 916f91837..000000000
 -        ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
 -    ])
 -    AS_IF([test "$ax_enable_compile_warnings" = "error"],[
--        # "error" flags; -Werror has to be appended unconditionally because
+-        # "error" flags;  has to be appended unconditionally because
 -        # it's not possible to test for
 -        #
 -        # suggest-attribute=format is disabled because it gives too many false
 -        # positives
--        AX_APPEND_FLAG([-Werror],ax_warn_cflags_variable)
+-        AX_APPEND_FLAG([],ax_warn_cflags_variable)
 -
 -        AX_APPEND_COMPILE_FLAGS([ dnl
 -            [$ax_compiler_no_suggest_attribute_flags] dnl
@@ -467,7 +467,7 @@ index 916f91837..000000000
 -
 -    # In the flags below, when disabling specific flags, always add *both*
 -    # -Wno-foo and -Wno-error=foo. This fixes the situation where (for example)
--    # we enable -Werror, disable a flag, and a build bot passes CFLAGS=-Wall,
+-    # we enable , disable a flag, and a build bot passes CFLAGS=-Wall,
 -    # which effectively turns that flag back on again as an error.
 -    for flag in $ax_warn_cflags_variable; do
 -        AS_CASE([$flag],
@@ -596,13 +596,13 @@ index 976d1198d..000000000
 -    m4_define([ax_warn_ldflags_variable],
 -              [m4_normalize(ifelse([$1],,[WARN_LDFLAGS],[$1]))])
 -
--    # Always pass -Werror=unknown-warning-option to get Clang to fail on bad
+-    # Always pass -Wno-unknown-warning-option to get Clang to fail on bad
 -    # flags, otherwise they are always appended to the warn_ldflags variable,
 -    # and Clang warns on them for every compilation unit.
 -    # If this is passed to GCC, it will explode, so the flag must be enabled
 -    # conditionally.
--    AX_CHECK_COMPILE_FLAG([-Werror=unknown-warning-option],[
--        ax_compiler_flags_test="-Werror=unknown-warning-option"
+-    AX_CHECK_COMPILE_FLAG([-Wno-unknown-warning-option],[
+-        ax_compiler_flags_test="-Wno-unknown-warning-option"
 -    ],[
 -        ax_compiler_flags_test=""
 -    ])
@@ -654,7 +654,7 @@ index 976d1198d..000000000
 -                                [$ax_compiler_flags_test])
 -    ])
 -    AS_IF([test "$ax_enable_compile_warnings" = "error"],[
--        # "error" flags; -Werror has to be appended unconditionally because
+-        # "error" flags;  has to be appended unconditionally because
 -        # it's not possible to test for
 -        #
 -        # suggest-attribute=format is disabled because it gives too many false

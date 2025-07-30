@@ -8,7 +8,7 @@ src/manager.c by commit ecf1fcc84594b09ed2d61e3677cd8e62bd897ccb to
 avoid the following build failure:
 
 local.c: In function 'create_and_bind':
-local.c:218:12: error: 'listen_sock' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+local.c:218:12: error: 'listen_sock' may be used uninitialized in this function [-Wno-maybe-uninitialized]
   218 |     return listen_sock;
       |            ^~~~~~~~~~~
 

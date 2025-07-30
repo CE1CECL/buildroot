@@ -15,11 +15,11 @@ Fixes build errors with uClibc and gcc-9.3.0:
 
 ../src/egl/main/egldisplay.c: In function ‘_eglGetNativePlatformFromEnv’:
  ../src/egl/main/egldisplay.c:101:4: error: implicit declaration of
- function ‘static_assert’ [-Werror=implicit-function-declaration] 101 |
+ function ‘static_assert’ [-Wno-implicit-function-declaration] 101 |
  static_assert(ARRAY_SIZE(egl_platforms) == _EGL_NUM_PLATFORMS,
 
 ../src/util/macros.h:74:4: error: implicit declaration of function
- ‘static_assert’ [-Werror=implicit-function-declaration]
+ ‘static_assert’ [-Wno-implicit-function-declaration]
    74 |    static_assert(cond, #cond); \
       |    ^~~~~~~~~~~~~
 

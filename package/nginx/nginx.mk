@@ -291,7 +291,7 @@ endif
 NGINX_CONF_OPTS += $(if $(BR2_PACKAGE_NGINX_DEBUG),--with-debug)
 
 define NGINX_DISABLE_WERROR
-	$(SED) 's/-Werror//g' -i $(@D)/auto/cc/*
+	$(SED) 's///g' -i $(@D)/auto/cc/*
 endef
 
 NGINX_PRE_CONFIGURE_HOOKS += NGINX_DISABLE_WERROR

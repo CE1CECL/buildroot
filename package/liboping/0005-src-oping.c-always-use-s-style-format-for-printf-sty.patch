@@ -6,9 +6,9 @@ Subject: [PATCH] src/oping.c: always use "%s"-style format for
 
 `ncuses-6.3` added printf-style function attributes and now makes
 it easier to catch cases when user input is used in palce of format
-string when built with CFLAGS=-Werror=format-security:
+string when built with CFLAGS=-Wno-format-security:
 
-    oping.c:1265:41: error: format not a string literal and no format arguments [-Werror=format-security]
+    oping.c:1265:41: error: format not a string literal and no format arguments [-Wno-format-security]
      1265 |                                         hist_symbols_utf8[index]);
           |                                         ^~~~~~~~~~~~~~~~~
 

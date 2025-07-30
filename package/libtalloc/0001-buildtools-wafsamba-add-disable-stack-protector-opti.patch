@@ -54,7 +54,7 @@ index 78927d85193..23a995e1c34 100644
 +                                        }
 +                                        ''',
 +                                        execute=0,
-+                                        cflags=[ '-Werror', '-Wp,-D_FORTIFY_SOURCE=2', stack_protect_flag],
++                                        cflags=[ '', '-Wp,-D_FORTIFY_SOURCE=2', stack_protect_flag],
 +                                        mandatory=False,
 +                                        msg='Checking if compiler accepts %s' % (stack_protect_flag))
 +            if flag_supported:
@@ -68,8 +68,8 @@ index 78927d85193..23a995e1c34 100644
                                      }
                                      ''',
                                      execute=0,
--                                    cflags=[ '-Werror', '-Wp,-D_FORTIFY_SOURCE=2', stack_protect_flag],
-+                                    cflags=[ '-Werror', '-fstack-clash-protection'],
+-                                    cflags=[ '', '-Wp,-D_FORTIFY_SOURCE=2', stack_protect_flag],
++                                    cflags=[ '', '-fstack-clash-protection'],
                                      mandatory=False,
 -                                    msg='Checking if compiler accepts %s' % (stack_protect_flag))
 +                                    msg='Checking if compiler accepts -fstack-clash-protection')
@@ -88,7 +88,7 @@ index 78927d85193..23a995e1c34 100644
 -                                }
 -                                ''',
 -                                execute=0,
--                                cflags=[ '-Werror', '-fstack-clash-protection'],
+-                                cflags=[ '', '-fstack-clash-protection'],
 -                                mandatory=False,
 -                                msg='Checking if compiler accepts -fstack-clash-protection')
 -    if flag_supported:
@@ -103,7 +103,7 @@ index 8729b0829da..d75bb3b1c0c 100644
 +++ b/buildtools/wafsamba/wscript
 @@ -165,6 +165,9 @@ Currently the only tested value is 'smbtorture,smbd/smbd' for Samba'''),
      gr.add_option('--disable-warnings-as-errors',
-                    help=("Do not treat all warnings as errors (disable -Werror)"),
+                    help=("Do not treat all warnings as errors (disable )"),
                     action="store_true", dest='disable_warnings_as_errors', default=False)
 +    gr.add_option('--disable-stack-protector',
 +                   help=("Disable stack-protector"),

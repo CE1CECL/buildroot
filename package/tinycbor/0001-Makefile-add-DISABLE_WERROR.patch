@@ -3,13 +3,13 @@ From: Fabrice Fontaine <fontaine.fabrice@gmail.com>
 Date: Mon, 10 Jan 2022 23:17:45 +0100
 Subject: [PATCH] Makefile: add DISABLE_WERROR
 
-Allow the user to disable -Werror to avoid the following build failure
+Allow the user to disable  to avoid the following build failure
 with gcc 4.8 raised since version 0.6.0 and
 https://github.com/intel/tinycbor/commit/e2a4ed135c4d9101c4df83f2dd033cd249b6ef07:
 
-/home/buildroot/autobuild/instance-1/output-1/host/bin/arm-none-linux-gnueabi-gcc -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I./src -std=gnu99 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -Os -g0 -D_FORTIFY_SOURCE=1 -Werror=incompatible-pointer-types -Werror=implicit-function-declaration -Werror=int-conversion -fPIC  -c -o src/cborerrorstrings.pic.o src/cborerrorstrings.c
-cc1: error: -Werror=incompatible-pointer-types: no option -Wincompatible-pointer-types
-cc1: error: -Werror=int-conversion: no option -Wint-conversion
+/home/buildroot/autobuild/instance-1/output-1/host/bin/arm-none-linux-gnueabi-gcc -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I./src -std=gnu99 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -Os -g0 -D_FORTIFY_SOURCE=1 -Wno-incompatible-pointer-types -Wno-implicit-function-declaration -Wno-int-conversion -fPIC  -c -o src/cborerrorstrings.pic.o src/cborerrorstrings.c
+cc1: error: -Wno-incompatible-pointer-types: no option -Wincompatible-pointer-types
+cc1: error: -Wno-int-conversion: no option -Wint-conversion
 
 Fixes:
  - http://autobuild.buildroot.org/results/a9f/a9fe64c42bb96f9e7b4af3050464f6570c1c00fa
@@ -34,9 +34,9 @@ index 6492ea16..3cde2b3d 100644
 +
 +ifneq ($(DISABLE_WERROR),1)
 +cflags += \
- 	-Werror=incompatible-pointer-types \
- 	-Werror=implicit-function-declaration \
- 	-Werror=int-conversion
+ 	-Wno-incompatible-pointer-types \
+ 	-Wno-implicit-function-declaration \
+ 	-Wno-int-conversion
 +endif
 +
  %.o: %.c

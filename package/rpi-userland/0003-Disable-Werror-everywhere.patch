@@ -4,9 +4,9 @@ Date: Thu, 22 Sep 2016 22:59:11 +0200
 Subject: [PATCH] Disable Werror everywhere
 
 With gcc-5.1, some constructs that were previously accepted (but wrong)
-are now considered warnings, and thus -Werror makes them errors.
+are now considered warnings, and thus  makes them errors.
 
-Ditch -Werror altoghether.
+Ditch  altoghether.
 
 Signed-off-by: "Yann E. MORIN" <yann.morin.1998@free.fr>
 
@@ -38,7 +38,7 @@ index 6d66d69..06a3192 100644
 @@ -1,6 +1,6 @@
  cmake_minimum_required(VERSION 2.8)
  
--SET(COMPILE_DEFINITIONS -Werror -Wall)
+-SET(COMPILE_DEFINITIONS  -Wall)
 +SET(COMPILE_DEFINITIONS -Wall)
  
  # Set --no-as-needed to stop the linker discarding mmal_vc_client
@@ -51,7 +51,7 @@ index f95d1a1..034bf20 100644
     set(VCOS_PLATFORM win32)
  else ()
     set(VCOS_PLATFORM pthreads)
--   add_definitions(-Wall -Werror)
+-   add_definitions(-Wall )
 +   add_definitions(-Wall )
  endif ()
  
@@ -64,7 +64,7 @@ index f7db21e..b94bdc3 100644
  
  # raspistill/raspivid/raspiyuv
  
--SET(COMPILE_DEFINITIONS -Werror)
+-SET(COMPILE_DEFINITIONS )
 +SET(COMPILE_DEFINITIONS )
  
  # Set --no-as-needed to stop the linker discarding mmal_vc_client
@@ -77,7 +77,7 @@ index 0fa8328..f0d1e77 100644
  include (${VIDEOCORE_ROOT}/makefiles/cmake/global_settings.cmake)
  
  if (NOT WIN32)
--   add_definitions(-Wall -Werror)
+-   add_definitions(-Wall )
 +   add_definitions(-Wall )
  endif ()
  
@@ -90,7 +90,7 @@ index 2154e53..c23779b 100644
     set(VCOS_PLATFORM win32)
  else ()
     set(VCOS_PLATFORM pthreads)
--   add_definitions(-Wall -Werror)
+-   add_definitions(-Wall )
 +   add_definitions(-Wall )
  endif ()
  
@@ -103,7 +103,7 @@ index 5ce5aca..02aea7c 100644
     set(VCOS_PLATFORM win32)
  else ()
     set(VCOS_PLATFORM pthreads)
--   add_definitions(-Wall -Werror)
+-   add_definitions(-Wall )
 +   add_definitions(-Wall )
  endif ()
  
@@ -116,7 +116,7 @@ index 46f149d..06273dc 100644
  set(LIBRARY_TYPE SHARED)
  endif (NOT DEFINED LIBRARY_TYPE)
  
--add_definitions(-Wall -Werror)
+-add_definitions(-Wall )
 +add_definitions(-Wall )
  
  add_library(mmal SHARED util/mmal_util.c)
@@ -129,7 +129,7 @@ index 23a8d72..988b104 100644
  endforeach ()
  
  if (CMAKE_COMPILER_IS_GNUCC)
--   add_definitions (-ggdb -Werror -Wall)
+-   add_definitions (-ggdb  -Wall)
 +   add_definitions (-ggdb  -Wall)
  endif ()
  
@@ -142,7 +142,7 @@ index 1d81ca3..b35cd8e 100644
  # MSVC5 does not fully support C99, enabling declaration-after-statement
  # warnings allows a common MSVC5 build error to be detected in Linux builds.
  if (CMAKE_COMPILER_IS_GNUCC)
--   set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -Wdeclaration-after-statement")
+-   set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall  -Wdeclaration-after-statement")
 +   set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall  -Wdeclaration-after-statement")
     add_definitions (-D_GNU_SOURCE)
  endif ()
@@ -155,7 +155,7 @@ index a157db1..dc384ca 100755
  # interface/vmcs_host
  
  # not working in release build
--# add_definitions(-Werror)
+-# add_definitions()
 +# add_definitions()
  
  # vc_vchi_gencmd.c has a type-punning problem in vc_gencmd_read_response

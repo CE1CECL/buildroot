@@ -1,4 +1,4 @@
-Fix build with -Wincompatible-pointer-types -Werror
+Fix build with -Wincompatible-pointer-types 
 
 Upstream: https://people.nwtime.org/hart/ntp-stable-3928-29.tar.gz
 

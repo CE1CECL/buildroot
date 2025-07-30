@@ -1,6 +1,6 @@
-configure.ac: disable -Werror
+configure.ac: disable 
 
-Disable the mandatory flag -Werror in configure.ac.
+Disable the mandatory flag  in configure.ac.
 
 Signed-off-by: Karoly Kasza <kaszak@gmail.com>
 
@@ -10,8 +10,8 @@ Signed-off-by: Karoly Kasza <kaszak@gmail.com>
  
  ### General flags / actions
  CFLAGS="$CFLAGS -Wall"
--CFLAGS="$CFLAGS -Werror"
-+# CFLAGS="$CFLAGS -Werror"
+-CFLAGS="$CFLAGS "
++# CFLAGS="$CFLAGS "
  
  # -Wno-unknown-pragmas is due to gcc not understanding '#pragma ident'
  # in Xlib.h on OpenSolaris.

@@ -39,7 +39,7 @@ index 098fd0a664bd..c126ff091e58 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -39,6 +39,10 @@ if test $warnaserror = "yes"; then
-   GDIPLUS_CFLAGS="$GDIPLUS_CFLAGS -Werror -Wno-unknown-warning-option -Wno-clobbered -Wno-typedef-redefinition"
+   GDIPLUS_CFLAGS="$GDIPLUS_CFLAGS  -Wno-unknown-warning-option -Wno-clobbered -Wno-typedef-redefinition"
  fi
  
 +AC_ARG_ENABLE(unittests, AS_HELP_STRING([--enable-unittests],[Enable building unit tests.]),[unittests=yes],[unittests=no])

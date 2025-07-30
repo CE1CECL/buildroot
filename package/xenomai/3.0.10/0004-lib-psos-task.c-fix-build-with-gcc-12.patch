@@ -6,14 +6,14 @@ Subject: [PATCH] lib/psos/task.c: fix build with gcc >= 12
 Fix the following build failure with gcc >= 12:
 
 task.c: In function 't_start':
-task.c:398:16: error: 'ret' may be used uninitialized [-Werror=maybe-uninitialized]
+task.c:398:16: error: 'ret' may be used uninitialized [-Wno-maybe-uninitialized]
   398 |         return ret;
       |                ^~~
 task.c:364:13: note: 'ret' was declared here
   364 |         int ret;
       |             ^~~
 task.c: In function 't_resume':
-task.c:444:16: error: 'ret' may be used uninitialized [-Werror=maybe-uninitialized]
+task.c:444:16: error: 'ret' may be used uninitialized [-Wno-maybe-uninitialized]
   444 |         return ret;
       |                ^~~
 task.c:428:13: note: 'ret' was declared here

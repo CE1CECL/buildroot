@@ -13,7 +13,7 @@ LIBMDBX_LICENSE_FILES = LICENSE
 LIBMDBX_STRIP_COMPONENTS = 0
 LIBMDBX_INSTALL_STAGING = YES
 
-# Set CMAKE_BUILD_TYPE to Release to remove -Werror and avoid a build failure
+# Set CMAKE_BUILD_TYPE to Release to remove  and avoid a build failure
 # with glibc < 2.12
 LIBMDBX_CONF_OPTS = \
 	-DCMAKE_BUILD_TYPE=Release \

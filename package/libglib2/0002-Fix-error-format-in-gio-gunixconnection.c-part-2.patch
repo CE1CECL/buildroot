@@ -8,17 +8,17 @@ Content-Transfer-Encoding: 8bit
 
 Update a series of error messages to use `g_set_error_literal` instead
 of `g_set_error`. This should prevent `format-nonliteral` compiler
-issues when `-Werror` is configured:
+issues when `` is configured:
 
     ../gio/gunixconnection.c: In function ‘g_unix_connection_receive_fd’:
-    ../gio/gunixconnection.c:183:9: error: format not a string literal, argument types not checked [-Werror=format-nonliteral]
+    ../gio/gunixconnection.c:183:9: error: format not a string literal, argument types not checked [-Wno-format-nonliteral]
       183 |         nscm);
           |         ^~~~
-    ../gio/gunixconnection.c:217:20: error: format not a string literal, argument types not checked [-Werror=format-nonliteral]
+    ../gio/gunixconnection.c:217:20: error: format not a string literal, argument types not checked [-Wno-format-nonliteral]
       217 |                    nfd);
           |                    ^~~
     ../gio/gunixconnection.c: In function ‘g_unix_connection_receive_credentials’:
-    ../gio/gunixconnection.c:601:24: error: format not a string literal, argument types not checked [-Werror=format-nonliteral]
+    ../gio/gunixconnection.c:601:24: error: format not a string literal, argument types not checked [-Wno-format-nonliteral]
       601 |                        nscm);
           |                        ^~~~
 

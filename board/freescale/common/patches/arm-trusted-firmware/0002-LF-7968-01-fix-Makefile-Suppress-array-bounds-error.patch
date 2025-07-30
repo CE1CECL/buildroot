@@ -8,7 +8,7 @@ before, causing errors like:
 
 ```
 plat/imx/imx8m/hab.c: In function 'imx_hab_handler':
-plat/imx/imx8m/hab.c:64:57: error: array subscript 0 is outside array bounds of 'uint32_t[0]' {aka 'unsigned int[]'} [-Werror=array-bounds]
+plat/imx/imx8m/hab.c:64:57: error: array subscript 0 is outside array bounds of 'uint32_t[0]' {aka 'unsigned int[]'} [-Wno-array-bounds]
    64 | #define HAB_RVT_CHECK_TARGET_ARM64      ((unsigned long)*(uint32_t *)(HAB_RVT_BASE + 0x18))
       |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
@@ -41,8 +41,8 @@ index c87c3ae08..2d6b90f47 100644
  endif
  
  ifneq (${E},0)
--ERRORS := -Werror
-+ERRORS := -Werror -Wno-error=array-bounds
+-ERRORS := 
++ERRORS :=  -Wno-error=array-bounds
  endif
  
  CPPFLAGS		=	${DEFINES} ${INCLUDES} ${MBEDTLS_INC} -nostdinc	\

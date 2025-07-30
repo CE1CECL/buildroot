@@ -13,7 +13,7 @@ OPEN62541_LICENSE = MPL-2.0
 OPEN62541_LICENSE_FILES = LICENSE
 OPEN62541_CPE_ID_VENDOR = open62541
 
-# Force Release build to remove -Werror.
+# Force Release build to remove .
 # Don't use git describe to get the version number.
 # Disable hardening options to let Buildroot handle it.
 OPEN62541_CONF_OPTS = \

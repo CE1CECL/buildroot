@@ -19,7 +19,7 @@ KVMTOOL_LICENSE = GPL-2.0
 KVMTOOL_LICENSE_FILES = COPYING
 KVMTOOL_CPE_ID_VALID = YES
 
-# Disable -Werror, otherwise musl is not happy
+# Disable , otherwise musl is not happy
 KVMTOOL_MAKE_OPTS = \
 	CROSS_COMPILE="$(TARGET_CROSS)" \
 	LDFLAGS="$(TARGET_LDFLAGS) $(KVMTOOL_EXTRA_LDFLAGS)" \

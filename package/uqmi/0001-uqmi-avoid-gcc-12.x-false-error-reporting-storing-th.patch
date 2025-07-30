@@ -7,7 +7,7 @@ Subject: [PATCH] uqmi: avoid gcc-12.x false error reporting (storing the
 Avoid gcc-12.x false error reporting (req->complete is later reset to NULL
 in case of use of local complete):
 
-  dev.c:217:23: error: storing the address of local variable 'complete' in '*req.complete' [-Werror=dangling-pointer=]
+  dev.c:217:23: error: storing the address of local variable 'complete' in '*req.complete' [-Wno-dangling-pointer=]
     217 |         req->complete = &complete;
         |         ~~~~~~~~~~~~~~^~~~~~~~~~~
 
@@ -31,7 +31,7 @@ index bd10207..dbd42d4 100644
  }
  
 +/* avoid gcc-12.x false error reporting:
-+ *   dev.c:217:23: error: storing the address of local variable ‘complete’ in ‘*req.complete’ [-Werror=dangling-pointer=]
++ *   dev.c:217:23: error: storing the address of local variable ‘complete’ in ‘*req.complete’ [-Wno-dangling-pointer=]
 + *     217 |         req->complete = &complete;
 + *         |         ~~~~~~~~~~~~~~^~~~~~~~~~~
 + */

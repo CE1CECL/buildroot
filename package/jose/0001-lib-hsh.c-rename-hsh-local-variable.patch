@@ -8,11 +8,11 @@ hsh() in hsh.h, causing the following build issues with old compilers
 (gcc 4.7):
 
 hsh.c: In function 'hsh':
-hsh.c:28:21: error: declaration of 'hsh' shadows a global declaration [-Werror=shadow]
-hsh.c:26:1: error: shadowed declaration is here [-Werror=shadow]
+hsh.c:28:21: error: declaration of 'hsh' shadows a global declaration [-Wno-shadow]
+hsh.c:26:1: error: shadowed declaration is here [-Wno-shadow]
 hsh.c: In function 'hsh_buf':
-hsh.c:60:21: error: declaration of 'hsh' shadows a global declaration [-Werror=shadow]
-hsh.c:26:1: error: shadowed declaration is here [-Werror=shadow]
+hsh.c:60:21: error: declaration of 'hsh' shadows a global declaration [-Wno-shadow]
+hsh.c:26:1: error: shadowed declaration is here [-Wno-shadow]
 
 Therefore, we rename this local variable to _hsh.
 

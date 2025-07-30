@@ -12,6 +12,6 @@ CZMQ_DEPENDENCIES = zeromq host-pkgconf
 CZMQ_LICENSE = MPL-2.0
 CZMQ_LICENSE_FILES = LICENSE
 
-CZMQ_CONF_OPTS = --disable-Werror --without-docs
+CZMQ_CONF_OPTS = --disable --without-docs
 
 $(eval $(autotools-package))

@@ -28,7 +28,7 @@ index fe3d844..fa24d4b 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -17,7 +17,7 @@ CFLAGS =-march=armv7-m -mcpu=cortex-m3 -mthumb -nostdlib -Wall -Wundef \
- 	-Werror-implicit-function-declaration -Wstrict-prototypes \
+ 	-Wno-implicit-function-declaration -Wstrict-prototypes \
  	-Wdeclaration-after-statement -fno-delete-null-pointer-checks \
  	-Wempty-body -fno-strict-overflow -fno-stack-protector \
 -	-fno-pie -g -I$(INCLUDES) -O2

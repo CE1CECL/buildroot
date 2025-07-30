@@ -10,7 +10,7 @@ Allow the user to disable demo and testsuite to avoid the following
 build failures on arc and riscv32:
 
 latency.c: In function 'display':
-latency.c:326:21: error: format '%ld' expects argument of type 'long int', but argument 2 has type 'time_t' {aka 'long long int'} [-Werror=format=]
+latency.c:326:21: error: format '%ld' expects argument of type 'long int', but argument 2 has type 'time_t' {aka 'long long int'} [-Wno-format=]
   326 |         ("RTT|  %.2ld:%.2ld:%.2ld  (%s, %Ld us period, "
       |                 ~~~~^
       |                     |
@@ -22,7 +22,7 @@ latency.c:326:21: error: format '%ld' expects argument of type 'long int', but a
       |                               time_t {aka long long int}
 
 altency.c: In function ‘display’:
-altency.c:262:21: error: format ‘%ld’ expects argument of type ‘long int’, but argument 2 has type ‘time_t’ {aka ‘long long int’} [-Werror=format=]
+altency.c:262:21: error: format ‘%ld’ expects argument of type ‘long int’, but argument 2 has type ‘time_t’ {aka ‘long long int’} [-Wno-format=]
   262 |         ("RTT|  %.2ld:%.2ld:%.2ld  (%s, %Ld us period, "
       |                 ~~~~^
       |                     |

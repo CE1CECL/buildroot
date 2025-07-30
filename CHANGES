@@ -5772,7 +5772,7 @@
 	is enabled for more finegrained policy control. Use daemon
 	mode for mdev rather than legacy hotplug.
 
-	linux: Workaround -Werror related build failure on powerpc,
+	linux: Workaround  related build failure on powerpc,
 	by forcing CONFIG_PPC_DISABLE_WERROR on.
 
 	Defconfigs: QEMU: use 'rootwait' kernel option to ensure root
@@ -5886,7 +5886,7 @@
 
 	arch: x86: Fix typo breaking 'core-avx2' variant
 
-	linux: Workaround -Werror related build failure on powerpc,
+	linux: Workaround  related build failure on powerpc,
 	by forcing CONFIG_PPC_DISABLE_WERROR on.
 
 	support/testing: Emulate a machine with 256MB RAM to fix
@@ -6259,7 +6259,7 @@
 	arch: x86: Fix typo breaking 'core-avx2' variant, add Westmere
 	variant.
 
-	linux: Workaround -Werror related build failure on powerpc,
+	linux: Workaround  related build failure on powerpc,
 	by forcing CONFIG_PPC_DISABLE_WERROR on.
 
 	support/testing: Emulate a machine with 256MB RAM to fix

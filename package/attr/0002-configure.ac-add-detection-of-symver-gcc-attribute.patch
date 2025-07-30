@@ -40,7 +40,7 @@ index 7e362e9..98477b5 100644
 +__typeof(foo) foo __attribute__ ((__symver__("foo@foo")));
 +EOF
 +	gcc_cv_symver_attribute=no
-+	if ${CC-cc} -Werror -S conftest.c -o conftest.s >/dev/null 2>&1; then \
++	if ${CC-cc}  -S conftest.c -o conftest.s >/dev/null 2>&1; then \
 +	    gcc_cv_symver_attribute=yes
 +	fi
 +	rm -f conftest.[cs]

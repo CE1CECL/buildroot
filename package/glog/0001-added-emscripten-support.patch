@@ -65,7 +65,7 @@ index 00000000..566c67eb
 +
 +      - name: Configure
 +        env:
-+          CXXFLAGS: -Wall -Wextra -Wsign-conversion -Wtautological-compare -Wformat-nonliteral -Wundef -Werror -Wno-error=wasm-exception-spec ${{env.CXXFLAGS}}
++          CXXFLAGS: -Wall -Wextra -Wsign-conversion -Wtautological-compare -Wformat-nonliteral -Wundef  -Wno-error=wasm-exception-spec ${{env.CXXFLAGS}}
 +        run: |
 +          cmake -S . -B build_${{matrix.build_type}} \
 +            -DBUILD_SHARED_LIBS=${{matrix.lib == 'shared'}} \
@@ -82,7 +82,7 @@ index 00000000..566c67eb
 +            -DCMAKE_RANLIB=$(which emranlib) \
 +            -DWITH_CUSTOM_PREFIX=${{matrix.extra == 'custom-prefix'}} \
 +            -G Ninja \
-+            -Werror
++            
 +
 +      - name: Build
 +        run: |

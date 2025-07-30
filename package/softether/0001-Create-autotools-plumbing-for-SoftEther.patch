@@ -660,12 +660,12 @@ index 00000000..d383ad5c
 +esac
 +
 +# Clang doesn't consider unrecognized options an error unless we specify
-+# -Werror. We throw in some extra Clang-specific options to ensure that
-+# this doesn't happen for GCC, which also accepts -Werror.
++# . We throw in some extra Clang-specific options to ensure that
++# this doesn't happen for GCC, which also accepts .
 +
-+AC_MSG_CHECKING([if compiler needs -Werror to reject unknown flags])
++AC_MSG_CHECKING([if compiler needs  to reject unknown flags])
 +save_CFLAGS="$CFLAGS"
-+ax_pthread_extra_flags="-Werror"
++ax_pthread_extra_flags=""
 +CFLAGS="$CFLAGS $ax_pthread_extra_flags -Wunknown-warning-option -Wsizeof-array-argument"
 +AC_COMPILE_IFELSE([AC_LANG_PROGRAM([int foo(void);],[foo()])],
 +                  [AC_MSG_RESULT([yes])],
@@ -1421,7 +1421,7 @@ index 00000000..4a3fc2ba
 +AC_INIT([SoftEther], [1], [http://www.vpnusers.com/], [softether], [http://www.softether.org/])
 +AC_CONFIG_AUX_DIR([autotools])
 +AC_CONFIG_MACRO_DIR([autotools])
-+AM_INIT_AUTOMAKE([foreign -Wall -Werror])
++AM_INIT_AUTOMAKE([foreign -Wall ])
 +AM_PROG_AR
 +AC_PROG_CC
 +AC_PROG_LIBTOOL
@@ -1921,7 +1921,7 @@ index 00000000..37b0291e
 +
 +include $(top_srcdir)/autotools/softether.am
 +
-+# This is required to use a custom build rule with -Wall and -Werror enabled.
++# This is required to use a custom build rule with -Wall and  enabled.
 +AUTOMAKE_OPTIONS = -Wno-override
 +EXEEXT =
 +HAMCOREBUILDER = $(top_builddir)/src/hamcorebuilder/hamcorebuilder

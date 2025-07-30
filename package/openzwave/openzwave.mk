@@ -23,7 +23,7 @@ OPENZWAVE_INSTALL_STAGING = YES
 # the correct directory otherwise openzwave will install configuration files in
 # $(PREFIX)/etc/openzwave.
 # Disable doxygen documentation.
-# Set {DEBUG,RELEASE}_CFLAGS to remove -Werror.
+# Set {DEBUG,RELEASE}_CFLAGS to remove .
 OPENZWAVE_MAKE_OPTS = \
 	CROSS_COMPILE="$(TARGET_CROSS)" \
 	PREFIX=/usr \
